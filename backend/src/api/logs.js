@@ -2,7 +2,6 @@ const express = require('express');
 const { readLogs, writeLog } = require('../services/db');
 const router = express.Router();
 
-// Validation middleware for log ingestion
 const validateLog = (req, res, next) => {
   const { level, message, resourceId, timestamp, traceId, spanId, commit, metadata } = req.body;
   if (!level || !message || !resourceId || !timestamp || !traceId || !spanId || !commit || !metadata) {
@@ -11,7 +10,7 @@ const validateLog = (req, res, next) => {
   next();
 };
 
-// POST /logs - Ingest a log
+// Ensure the path is just '/'
 router.post('/', validateLog, async (req, res) => {
   try {
     const newLog = req.body;
@@ -22,12 +21,10 @@ router.post('/', validateLog, async (req, res) => {
   }
 });
 
-// GET /logs - Query logs with filters
+// Ensure the path is just '/'
 router.get('/', async (req, res) => {
   try {
     let logs = await readLogs();
-
-    // Apply filters based on query parameters
     const filters = req.query;
     const filteredLogs = logs.filter(log => {
       let isValid = true;
@@ -47,9 +44,7 @@ router.get('/', async (req, res) => {
       return isValid;
     });
 
-    // Sort by timestamp in reverse-chronological order
     const sortedLogs = filteredLogs.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-
     res.status(200).json(sortedLogs);
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { LogFilterBar } from './components/LogFilterBar';
 import { LogList } from './components/LogList';
 import { getLogs } from './services/api';
@@ -6,40 +6,40 @@ import { useDebounce } from './hooks/useDebounce';
 import './App.css';
 
 const INITIAL_FILTERS = {
-  level: '', message: '', resourceId: '', timestamp_start: '',
-  timestamp_end: '', traceId: '', spanId: '', commit: '',
+  level: '',
+  message: '',
+  resourceId: '',
+  timestamp_start: '',
+  timestamp_end: '',
+  traceId: '',
+  spanId: '',
+  commit: '',
 };
 
 function App() {
-  const [logs, setLogs] = useState([]);
   const [filters, setFilters] = useState(INITIAL_FILTERS);
-  const [isLoading, setIsLoading] = useState(true);
+  const [logs, setLogs] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const debouncedMessage = useDebounce(filters.message, 500);
-  const debouncedResourceId = useDebounce(filters.resourceId, 500);
-
-  const activeFilters = useMemo(() => ({
-    ...filters,
-    message: debouncedMessage,
-    resourceId: debouncedResourceId,
-  }), [filters, debouncedMessage, debouncedResourceId]);
+  const debouncedFilters = useDebounce(filters, 500);
 
   useEffect(() => {
     const fetchLogs = async () => {
       setIsLoading(true);
-      const fetchedLogs = await getLogs(activeFilters);
+      const fetchedLogs = await getLogs(debouncedFilters);
       setLogs(fetchedLogs);
       setIsLoading(false);
     };
     fetchLogs();
-  }, [activeFilters]);
+  }, [debouncedFilters]);
 
   const handleFilterChange = (name, value) => {
-    let finalValue = value;
-    if (name === 'timestamp_start' || name === 'timestamp_end') {
-      finalValue = value ? new Date(value).toISOString() : '';
-    }
-    setFilters(prev => ({ ...prev, [name]: finalValue }));
+    setFilters(prev => ({
+      ...prev,
+      [name]: ['timestamp_start', 'timestamp_end'].includes(name)
+        ? value
+        : value,
+    }));
   };
 
   const handleClearFilters = () => {

@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-  // Use the environment variable for the baseURL
   baseURL: import.meta.env.VITE_API_BASE_URL,
+  withCredentials: true
 });
 
 export const getLogs = async (filters) => {
