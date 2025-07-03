@@ -1,0 +1,124 @@
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #f0f2f5;
+  color: #1a1a1a;
+  --border-color: #d9d9d9;
+  --error-bg: #fff1f0;
+  --warn-bg: #fffbe6;
+  --info-bg: #e6f7ff;
+}
+
+body {
+  margin: 0;
+  padding: 24px;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 2em;
+  color: #333;
+}
+
+.filter-bar {
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-group label {
+  font-weight: 500;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.filter-group input,
+.filter-group select {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.clear-button {
+  grid-column: 1 / -1;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: #fafafa;
+  cursor: pointer;
+  text-align: center;
+  font-weight: 500;
+}
+
+.log-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.loading-text,
+.no-logs-text {
+  text-align: center;
+  color: #888;
+  font-size: 16px;
+  padding: 40px;
+}
+
+.log-item {
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  border-left: 5px solid;
+}
+
+.log-item.level-error {
+  background-color: var(--error-bg);
+  border-color: #f5222d;
+}
+
+.log-item.level-warn {
+  background-color: var(--warn-bg);
+  border-color: #faad14;
+}
+
+.log-item.level-info {
+  background-color: var(--info-bg);
+  border-color: #1890ff;
+}
+
+.log-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.log-message {
+  margin-bottom: 12px;
+  white-space: pre-wrap;
+}
+
+.log-meta {
+  font-size: 12px;
+  color: #666;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
