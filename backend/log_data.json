@@ -34,5 +34,77 @@
     "metadata": {
       "parentResourceId": "gateway-01"
     }
+  },
+  {
+    "level": "error",
+    "message": "something went wrong",
+    "resourceId": "server-auth-05",
+    "timestamp": "2025-07-03T18:30:00Z",
+    "traceId": "def-uvw-456",
+    "spanId": "span-123",
+    "commit": "c3b2a18",
+    "metadata": {
+      "parentResourceId": "gateway-01"
+    }
+  },
+  {
+    "level": "error",
+    "message": "something went wrong",
+    "resourceId": "server-auth-05",
+    "timestamp": "2025-07-03T18:30:00Z",
+    "traceId": "def-uvw-456",
+    "spanId": "span-123",
+    "commit": "c3b2a18",
+    "metadata": {
+      "parentResourceId": "gateway-01"
+    }
+  },
+  {
+    "level": "error",
+    "message": "something went wrong",
+    "resourceId": "server-auth-05",
+    "timestamp": "2025-07-03T18:30:00Z",
+    "traceId": "def-uvw-456",
+    "spanId": "span-123",
+    "commit": "c3b2a18",
+    "metadata": {
+      "parentResourceId": "gateway-01"
+    }
+  },
+  {
+    "level": "error",
+    "message": "something went wrong",
+    "resourceId": "server-auth-05",
+    "timestamp": "2025-07-03T18:30:00Z",
+    "traceId": "def-uvw-456",
+    "spanId": "span-123",
+    "commit": "c3b2a18",
+    "metadata": {
+      "parentResourceId": "gateway-01"
+    }
+  },
+  {
+    "level": "error",
+    "message": "something went wrong",
+    "resourceId": "server-auth-05",
+    "timestamp": "2025-07-03T18:30:00Z",
+    "traceId": "def-uvw-456",
+    "spanId": "span-123",
+    "commit": "c3b2a18",
+    "metadata": {
+      "parentResourceId": "gateway-01"
+    }
+  },
+  {
+    "level": "warn",
+    "message": "some data persit",
+    "resourceId": "server-auth-05",
+    "timestamp": "2025-07-03T18:30:00Z",
+    "traceId": "def-uvw-456",
+    "spanId": "span-123",
+    "commit": "c3b2a18",
+    "metadata": {
+      "parentResourceId": "gateway-01"
+    }
   }
 ]

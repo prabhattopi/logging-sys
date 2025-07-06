@@ -122,3 +122,12 @@ h1 {
   flex-wrap: wrap;
   gap: 16px;
 }
+
+.analytics-dashboard {
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+  margin-bottom: 24px;
+}
+.analytics-dashboard h3 { margin-top: 0; margin-bottom: 16px; }

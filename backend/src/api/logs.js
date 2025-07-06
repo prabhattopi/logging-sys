@@ -15,6 +15,8 @@ router.post('/', validateLog, async (req, res) => {
   try {
     const newLog = req.body;
     await writeLog(newLog);
+    // Emit a 'new_log' event to all connected socket.io clients
+    req.io.emit('new_log', newLog);
     res.status(201).json(newLog);
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });
